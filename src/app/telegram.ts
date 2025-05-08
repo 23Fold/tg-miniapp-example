@@ -6,7 +6,7 @@ declare global {
         expand: () => void;
         close: () => void;
         showAlert: (message: string) => void;
-        showPopup: (params: any) => void;
+        showPopup: (params: PopupParams) => void;
         initDataUnsafe: {
           user?: {
             id: number;
@@ -31,6 +31,16 @@ declare global {
       };
     };
   }
+}
+
+interface PopupParams {
+  title?: string;
+  message: string;
+  buttons?: Array<{
+    id: string;
+    type?: "default" | "ok" | "close" | "cancel" | "destructive";
+    text: string;
+  }>;
 }
 
 export const initTelegramApp = () => {

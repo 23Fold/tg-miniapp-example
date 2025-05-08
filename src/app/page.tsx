@@ -6,16 +6,24 @@ import { parseEther } from "viem";
 import { useState, useEffect } from "react";
 import { initTelegramApp } from "./telegram";
 
+interface TelegramUser {
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  language_code?: string;
+}
+
 export default function Home() {
   const { address, isConnected } = useAccount();
-  const [telegramUser, setTelegramUser] = useState<any>(null);
+  const [telegramUser, setTelegramUser] = useState<TelegramUser | null>(null);
 
   useEffect(() => {
     initTelegramApp();
     // Get Telegram user info
     if (typeof window !== "undefined" && window.Telegram?.WebApp) {
       const user = window.Telegram.WebApp.initDataUnsafe?.user;
-      setTelegramUser(user);
+      setTelegramUser(user || null);
     }
   }, []);
 

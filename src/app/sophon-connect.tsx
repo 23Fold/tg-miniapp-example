@@ -63,6 +63,7 @@ export const SophonConnectButton: React.FC<Props> = ({ authenticatedComponent })
     return (
       <a
         href="#"
+        id="sophon-connect-button"
         onClick={onConnect}
         style={{
           marginTop: "16px",

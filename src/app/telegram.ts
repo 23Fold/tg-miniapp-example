@@ -55,7 +55,7 @@ export const initTelegramApp = () => {
     window.Telegram.WebApp.MainButton.setText("Connect Wallet");
     window.Telegram.WebApp.MainButton.onClick(() => {
       // This will be handled by the appkit-button component
-      const connectButton = document.querySelector("appkit-button");
+      const connectButton = document.getElementById("sophon-connect-button");
       if (connectButton) {
         (connectButton as HTMLElement).click();
       }

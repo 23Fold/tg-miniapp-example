@@ -5,6 +5,7 @@ import { useSignMessage, useSendTransaction, useAccount } from "wagmi";
 import { parseEther } from "viem";
 import { useState, useEffect } from "react";
 import { initTelegramApp } from "./telegram";
+import { SophonConnectButton } from "./sophon-connect";
 
 interface TelegramUser {
   id: number;
@@ -103,6 +104,8 @@ export default function Home() {
           </section>
 
           <appkit-button label="Connect Wallet"></appkit-button>
+
+          <SophonConnectButton authenticatedComponent={<div>Connected</div>} />
 
           <div className="w-full space-y-8">
             {/* Sign Message Section */}

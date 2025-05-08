@@ -20,7 +20,7 @@ const metadata = {
   //optional
   name: "AppKit",
   description: "AppKit Example",
-  url: "https://example.com",
+  url: "https://tg-miniapp-example.vercel.app",
   icons: ["https://avatars.githubusercontent.com/u/179229932"],
 };
 
@@ -40,6 +40,7 @@ createAppKit({
     analytics: true,
     connectMethodsOrder: ["wallet", "social", "email"],
   },
+  includeWalletIds: ["sophon-testnet"],
 });
 
 export default function Web3ModalProvider({
@@ -50,10 +51,7 @@ export default function Web3ModalProvider({
   initialState?: State;
 }) {
   return (
-    <WagmiProvider
-      config={wagmiAdapter.wagmiConfig}
-      initialState={initialState}
-    >
+    <WagmiProvider config={wagmiAdapter.wagmiConfig} initialState={initialState}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </WagmiProvider>
   );

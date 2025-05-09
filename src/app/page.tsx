@@ -103,6 +103,29 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="p-6 rounded-xl border border-black/[.08] dark:border-white/[.145] bg-white dark:bg-black">
+            <h2 className="text-xl font-semibold mb-4">Sophon Account</h2>
+            <button
+              onClick={() => {
+                const iframe = document.createElement("iframe");
+                iframe.src =
+                  "https://account.staging.sophon.xyz/4.15.0?provider_env_id=767555fd-deac-4852-bdf2-ec4442697ea7&requester_origin=https%3A%2F%2Ftg-miniapp-example.vercel.app&receiver_public_key=0456411fd8ebd65e3cc9417ba872f5e4225c232ff200ae7cbb6ed396f0bf33344c836c5c2684650741053661ad11a792929e7aa6fb3cadbd415f5c0ab423263457#/connect";
+                iframe.style.width = "100%";
+                iframe.style.height = "500px";
+                iframe.style.border = "none";
+                const container = document.getElementById("sophon-iframe-container");
+                if (container) {
+                  container.innerHTML = "";
+                  container.appendChild(iframe);
+                }
+              }}
+              className="w-full rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            >
+              Open Sophon Account
+            </button>
+            <div id="sophon-iframe-container" className="mt-4"></div>
+          </section>
+
           <appkit-button label="Connect Wallet"></appkit-button>
 
           <SophonConnectButton authenticatedComponent={<div>Connected</div>} />
